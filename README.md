@@ -111,7 +111,8 @@ pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubuse
 
 Delete an existing metadata record (`--operation delete`):
 ```bash
-pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/World-Meteorological-Organization/pywcmp/master/tests/data/wcmp2-passing.json --metadata-id "urn:wmo:md:ca-eccc-msc:weather.observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation delete --verbosity INFO
+pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://http.codes/204 --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation delete --verbosity INFO
 ```
 Note that:
-- On delete, we don't need to include any content so we could use the URL `https://http.codes/204` which provides a HTTP 204 response "No Content"; however, we need to let the Global Discovery Catalogue know what to delete; the {data_id} is created by concatenating the topic with the final token of the URL (e.g., `origin/a/wis2/eu-eumetnet-femdi/metadata/wcmp2-passing.json`)
+- On delete, we don't need to include any content so we use the URL `https://http.codes/204` which provides a HTTP 204 response "No Content"
+- The Global Discovery Catalogue determines which record to delete based on the metadata identifier
