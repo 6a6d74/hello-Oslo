@@ -1,0 +1,18 @@
+broker: mqtts://everyone:everyone@globalbroker.meteo.fr:8883
+
+subscribe_topics:
+    - 'origin/a/wis2/de-dwd-gts-to-wis2/data/core/#'
+
+qos: 1
+
+clean_session: true
+
+verify_data: true
+
+validate_message: true
+
+storage:
+    type: fs
+    options:
+        basedir: ./downloads
+        filepath: data_id
