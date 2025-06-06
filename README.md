@@ -106,13 +106,17 @@ Note that:
 
 Publish an update to an existing metadata record (`--operation update`):
 ```bash
-pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/World-Meteorological-Organization/pywcmp/master/tests/data/wcmp2-passing.json --metadata-id "urn:wmo:md:ca-eccc-msc:weather.observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation update --verbosity INFO
+pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation update --verbosity INFO
 ```
+
+Note that:
+- On update, the Global Discovery Catalogue determines which record to update based on the metadata identifier
 
 Delete an existing metadata record (`--operation delete`):
 ```bash
 pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://http.codes/204 --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation delete --verbosity INFO
 ```
+
 Note that:
 - On delete, we don't need to include any content so we use the URL `https://http.codes/204` which provides a HTTP 204 response "No Content"
 - The Global Discovery Catalogue determines which record to delete based on the metadata identifier
