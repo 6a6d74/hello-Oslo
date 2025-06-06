@@ -106,11 +106,12 @@ Note that:
 
 Publish an update to an existing metadata record (`--operation update`):
 ```bash
-pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation update --verbosity INFO
+pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing-update.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation update --verbosity INFO
 ```
 
 Note that:
 - On update, the Global Discovery Catalogue determines which record to update based on the metadata identifier
+- Here, we use a slightly modified version of the metadata record, [wcmp2-passing-update.json](https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing-update.json), with amended description and updated-time properties; this allows us to see that the update has happened 
 
 Delete an existing metadata record (`--operation delete`):
 ```bash
