@@ -32,6 +32,8 @@ conda create -n {name} python=3.10
 
 Select `[y]` to confirm, then continue to install [pywis-pubsub](https://github.com/World-Meteorological-Organization/pywis-pubsub)
 
+You can choose your own `{name}`, e.g., `python310`
+
 ```bash
 conda activate {name}
 pip3 install pywis-pubsub
@@ -46,6 +48,18 @@ pywis-pubsub --version
 
 
 ## Running the tutorial
+
+### Let's go!
+
+Jump into the working directory:
+```bash
+cd hello-Oslo/
+```
+
+Download the latest schemas so that pywis-pubsub can validate messages:
+```bash
+pywis-pubsub schema sync
+```
 
 ### Let's check that pywis-pubsub is working - download data from the live WIS2 environment
 
@@ -87,6 +101,7 @@ Note that:
 - The {centre-id} in the metadata identifier (e.g., `ca-eccc-msc`) should match the {centre-id} used in the topic when pub
 lishing notification messages in the live WIS2 system
 - We force use of randomly generated UUID for the message id with `--identifier $(uuidgen)`
+- If `uuidgen` isn't supported on your platform, [generate a UUID online](https://guidgenerator.com/) and replace `$(uuidgen)` with the generated UUID
 - Verbosity is set to `INFO`
 - Add `--inline True` if you want to embed the WCMP2 record in the notification message (limit is 4Kb)
 
