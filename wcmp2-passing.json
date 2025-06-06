@@ -1,5 +1,5 @@
 {
-    "id": "urn:wmo:md:eu-eumetnet-femdi.observations.swob-realtime",
+    "id": "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime",
     "conformsTo": [
         "http://wis.wmo.int/spec/wcmp/2/conf/core"
     ],
