@@ -104,20 +104,22 @@ Note that:
 - If `uuidgen` isn't supported on your platform, [generate a UUID online](https://guidgenerator.com/) and replace `$(uuidgen)` with the generated UUID
 - Verbosity is set to `INFO`
 
-Publish an update to an existing metadata record (`--operation update`):
+Publish an update to an existing metadata record:
 ```bash
-pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing-update.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation update --verbosity INFO
+pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing-update.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --verbosity INFO
 ```
 
 Note that:
 - On update, the Global Discovery Catalogue determines which record to update based on the metadata identifier
-- Here, we use a slightly modified version of the metadata record, [wcmp2-passing-update.json](https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing-update.json), with amended description and updated-time properties; this allows us to see that the update has happened 
+- Here, we use a slightly modified version of the metadata record, [wcmp2-passing-update.json](https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing-update.json), with amended description and updated-time properties; this allows us to see that the update has happened
+- Even though we're doing an _update_ operation, we don't need to include the `--operation update` qualifier in the request; the Global Discovery Catalogue processes the new record even though the notification message doesn't say `rel=update`
 
-Delete an existing metadata record (`--operation delete`):
+Delete an existing metadata record:
 ```bash
 pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://http.codes/204 --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation delete --verbosity INFO
 ```
 
 Note that:
+- To tell the Global Discovery Catalogue that we want to delete a record, we use the `--operation delete` qualifier; this tells pywis-pubsub to include `rel=deletion` in the notification message
 - On delete, we don't need to include any content so we use the URL `https://http.codes/204` which provides a HTTP 204 response "No Content"
 - The Global Discovery Catalogue determines which record to delete based on the metadata identifier
