@@ -23,7 +23,7 @@ conda init
 You'll need to close the terminal and open a new one for this to take effect
 Your terminal should now say `(base)`
 
-Note that version 0.8 of `pywis-pubsub` needs to run in Python 3.10 because of dependencies. Fortunately, it's easy to create the right python environment
+We're going to run `pywis-pubsub` in Python 3.10. Fortunately, it's easy to create the right python environment
 
 Setup the environment:
 ```bash
