@@ -96,17 +96,15 @@ Edit `publish--cloud-hivemq.yml` to add the password to the MQTT credentials:
 
 Publish the sample WCMP2 metadata record to the HiveMQ broker:
 ```bash
-pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --verbosity INFO
+pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --verbosity INFO
 ```
 
 Note that:
-- We force use of randomly generated UUID for the message id with `--identifier $(uuidgen)`
-- If `uuidgen` isn't supported on your platform, [generate a UUID online](https://guidgenerator.com/) and replace `$(uuidgen)` with the generated UUID
 - Verbosity is set to `INFO`
 
 Publish an update to an existing metadata record:
 ```bash
-pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing-update.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --verbosity INFO
+pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://raw.githubusercontent.com/6a6d74/hello-Oslo/refs/heads/main/wcmp2-passing-update.json --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --verbosity INFO
 ```
 
 Note that:
@@ -116,7 +114,7 @@ Note that:
 
 Delete an existing metadata record:
 ```bash
-pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://http.codes/204 --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --identifier $(uuidgen) --operation delete --verbosity INFO
+pywis-pubsub publish --config publish--cloud-hivemq.yml -u https://http.codes/204 --metadata-id "urn:wmo:md:eu-eumetnet-femdi:observations.swob-realtime" --topic origin/a/wis2/eu-eumetnet-femdi/metadata --operation delete --verbosity INFO
 ```
 
 Note that:
