@@ -78,6 +78,36 @@ Note that:
 
 Look in `./downloads/` and see some data!
 
+### Configure an MQTT Client to see your messages
+
+For the tutorial we'll use the MQTTX Web-client - but there are many options. Load the Web-client in a browser window:
+
+[https://mqttx.app/web-client](https://mqttx.app/web-client)
+
+Click `+ New Connection` to add a connection to the `gb.wis2dev.io` MQTT broker
+
+Now add the connection details:
+- Name `{your-connection-name}`
+- Host (protocol) `wss://`
+- Host (name) `gb.wis2dev.io`
+- Path `/mqtt`
+- Username `everyone`
+- Password `everyone`
+- SSL/TLS [yes]
+- SSL Secure [no]
+
+... and click Connect
+
+Notes that the Web-client uses `wss://` protocol – were running MQTT over Web-socket
+
+Now add the subscriptions:
+- origin/a/wis2/#
+- monitor/a/wis2/#
+
+Once you confirmed each subscription, select JSON for the message type to see your messages _pretty-printed_
+
+And that's done. 
+
 ### Publish some WCMP2 discovery metadata
 
 For convenience, we're publishing to topic using {centre-id} = `eu-eumetnet-femdi`; this {centre-id} already exists in the [_official_ topic hierarchy](http://codes.wmo.int/wis/topic-hierarchy/centre-id); the Global Broker will only re-publish messages that use this topic hierarchy
