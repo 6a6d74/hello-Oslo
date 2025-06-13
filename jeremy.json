@@ -126,7 +126,7 @@
     },
     "links": [
         {
-            "rel": "canoncical",
+            "rel": "canonical",
             "href": "https://api.meteogate.eu/jeremy/edr/collections/hourly-in-situ-meteorological-observations-validated",
             "type": "application/json",
             "title": "Data access API interface: Hourly in-situ meteorological observations (climate)"
@@ -136,6 +136,12 @@
             "href": "https://api.meteogate.eu/jeremy/edr/collections/hourly-in-situ-meteorological-observations-validated/items",
             "type": "application/json",
             "title": "Data access API interface (items): Hourly in-situ meteorological observations (climate)"
+       },
+        {
+           "rel": "license",
+           "type": "text/html",
+           "href": "https://creativecommons.org/licenses/by/4.0/",
+           "title": "CC BY 4.0 Deed | Attribution 4.0 International | Creative Commo
        }
     ]
 }
