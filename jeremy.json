@@ -137,11 +137,11 @@
             "type": "application/json",
             "title": "Data access API interface (items): Hourly in-situ meteorological observations (climate)"
        },
-        {
-           "rel": "license",
-           "type": "text/html",
-           "href": "https://creativecommons.org/licenses/by/4.0/",
-           "title": "CC BY 4.0 Deed | Attribution 4.0 International | Creative Commons"
+       {
+            "rel": "license",
+            "type": "text/html",
+            "href": "https://creativecommons.org/licenses/by/4.0/",
+            "title": "CC BY 4.0 Deed | Attribution 4.0 International | Creative Commons"
        }
     ]
 }
