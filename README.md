@@ -34,8 +34,25 @@ Select `[y]` to confirm, then continue to install [pywis-pubsub](https://github.
 
 You can choose your own `{name}`, e.g., `python310`
 
+Now activate the virtual environment:
+
 ```bash
 conda activate {name}
+```
+
+Conda is the most straightforward way to set up the virtual environment. If you don't have it, try installing [miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install#macos-linux-installation:how-do-i-verify-my-installers-integrity). Alternatively, use Python `virtualenv`:
+
+```bash
+# setup virtualenv
+python3 -m venv --system-site-packages {name}
+cd {name}
+source bin/activate
+```
+
+
+Now you're ready to install `pywis-pubsub`:
+
+```bash
 pip3 install pywis-pubsub
 ```
 
