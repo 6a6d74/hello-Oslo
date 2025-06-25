@@ -49,6 +49,7 @@ cd {name}
 source bin/activate
 ```
 
+### Install pywis-pubsub
 
 Now you're ready to install `pywis-pubsub`:
 
