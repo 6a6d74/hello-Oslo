@@ -108,6 +108,7 @@ Now add the connection details:
 - Name `{your-connection-name}`
 - Host (protocol) `wss://`
 - Host (name) `gb.wis2dev.io`
+- Port `443`
 - Path `/mqtt`
 - Username `everyone`
 - Password `everyone`
