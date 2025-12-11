@@ -2,9 +2,18 @@
 
 ## Requirements
 - Python 3
-- Conda
 
 ## Getting setup
+
+### (optional) Virtual Python environment
+You may want to set up a virtual environment to keep this sandbox separate from your other Python work. If you do, use Python `virtualenv` to do this:
+
+```bash
+# setup virtualenv
+python3 -m venv --system-site-packages {name}
+cd {name}
+source bin/activate
+```
 
 ### Clone me
 
@@ -13,41 +22,6 @@ Clone this repository so that you have all the necessary configurations and comm
 git clone https://github.com/6a6d74/hello-Oslo.git
 ```
 
-### Create the virtual environment
-
-Intialise Conda:
-```bash
-conda init
-```
-
-You'll need to close the terminal and open a new one for this to take effect
-Your terminal should now say `(base)`
-
-We're going to run `pywis-pubsub` in Python 3.10. Fortunately, it's easy to create the right python environment
-
-Setup the environment:
-```bash
-conda create -n {name} python=3.10 
-```
-
-Select `[y]` to confirm, then continue to install [pywis-pubsub](https://github.com/World-Meteorological-Organization/pywis-pubsub)
-
-You can choose your own `{name}`, e.g., `python310`
-
-Now activate the virtual environment:
-
-```bash
-conda activate {name}
-```
-
-Conda is the most straightforward way to set up the virtual environment. If you don't have it, try installing [miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install#macos-linux-installation:how-do-i-verify-my-installers-integrity). Alternatively, use Python `virtualenv`:
-
-```bash
-# setup virtualenv
-python3 -m venv --system-site-packages {name}
-cd {name}
-source bin/activate
-```
 
 ### Install pywis-pubsub
 
